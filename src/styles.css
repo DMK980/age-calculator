@@ -16,20 +16,19 @@
     padding: 0;
 
 }
-
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .calc_background{
     width: 90%;
     display: flex;
     justify-content: center;
     background-color: rgba(160, 160, 160, 0.2);
     box-shadow: 1px 1px 80px -20px var(--COLOUR-5);
-    padding: 8rem 0
+    padding: 8rem 0;
+    margin-top: 8rem;
 }
 .calc{
     background-color: var(--COLOUR-3);
@@ -48,7 +47,7 @@ body{
 }
 .input{
     width: 5rem;
-    font-size: clamp(.95rem,5vw,1.25rem);
+    font-size: 1.25rem;
     border: 2px solid rgba(160, 160, 160, 0.6);
     border-radius: 6%;
     padding: .5rem;
@@ -72,7 +71,6 @@ body{
 .div_container{
     width: 100%;
     display: flex;
-    justify-content: end;
     padding: 1rem 0 0 0;
     align-items: center;
 }
@@ -98,12 +96,6 @@ body{
     color: var(--COLOUR-1);
     margin-right: 0.25rem;
 }
-
-
-
-
-
-
 /* Footer  */
 .attribution { 
     font-size: 1rem; 
@@ -112,3 +104,41 @@ body{
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+
+@media screen and (max-width:768px) {
+    .calc_background{
+        width: 100%;
+    } 
+}
+@media screen and (max-width: 530px) {
+    .output{
+        font-size: 2.5rem;
+    }
+    .calc{
+        width: 250px;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+    .input_container{
+        padding: 0;
+    }
+    .input{
+        font-size: .75rem;
+        width: 3rem;
+    }
+    .attribution{
+        font-size: .85rem;
+    }
+    .divider_container{
+        position: absolute;
+    }
+    .div_container{
+        justify-content: center;
+        padding: 2.5rem 0 1rem 0;
+    }
+}
+
+
+
+
+
+
