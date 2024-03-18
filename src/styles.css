@@ -1,0 +1,114 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+
+    --COLOUR-1:#864CFF;
+    --COLOUR-2:rgba(20, 20, 20, 1);
+    --COLOUR-3:#FFFFFF;
+    --COLOUR-4:#F0F0F0;
+    --COLOUR-5:rgba(160, 160, 160, 1);
+    --COLOUR-6:#DB6A70;
+
+    font-family: "Poppins";
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calc_background{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(160, 160, 160, 0.2);
+    box-shadow: 1px 1px 80px -20px var(--COLOUR-5);
+    padding: 8rem 0
+}
+.calc{
+    background-color: var(--COLOUR-3);
+    border-radius: 5% 5% 30% 5%;
+    padding: 2rem 1.5rem;
+    box-shadow: 1px 1px 30px -20px var(--COLOUR-5);
+}
+.inputs{
+    display: flex;
+    column-gap: .75rem;
+}
+.input_container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 0 0;
+}
+.input{
+    width: 5rem;
+    font-size: clamp(.95rem,5vw,1.25rem);
+    border: 2px solid rgba(160, 160, 160, 0.6);
+    border-radius: 6%;
+    padding: .5rem;
+    font-weight:900;
+}
+.input::placeholder{
+    color: rgba(160, 160, 160, 0.8);
+    font-weight: 800;
+}
+.input_label{
+    font-size: .8rem;
+    color: rgba(20, 20, 20, .8);
+    font-weight: bolder;
+}
+.divider_container{
+    border-radius: 50%;
+    background-color: var(--COLOUR-1);
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+}
+.div_container{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 1rem 0 0 0;
+    align-items: center;
+}
+.line{
+    border: 1px solid rgba(160, 160, 160, 0.1);
+    width: 100%;
+}
+.divider_container:hover{
+    background-color: var(--COLOUR-2);
+}
+.svg_arrow{
+    color: var(--COLOUR-3);
+}
+.output_container{
+    line-height: 1rem;
+}
+.output{
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-style: italic;
+}
+.output_span{
+    color: var(--COLOUR-1);
+    margin-right: 0.25rem;
+}
+
+
+
+
+
+
+/* Footer  */
+.attribution { 
+    font-size: 1rem; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Age calculator app</title>
+
+</head>
+<body>
+  <section class="calc_background">
+    <div class="calc">
+
+      <!-- inputs -->
+      <div class="inputs">
+        <!-- Day  -->
+        <div class="input_container">
+          <label for="day" class=" input_label day_label">DAY</label>
+          <input type="number" class=" input day_input"id="day" placeholder="DD">
+        </div>
+        <!-- Month -->
+        <div class="input_container">
+          <label for="Month" class=" input_label Month_label">MONTH</label>
+          <input type="number" class=" input Month_input"id="Month" placeholder="MM">
+        </div>
+        <!-- Year -->
+        <div class="input_container">
+          <label for="Year" class=" input_label Year_label">YEAR</label>
+          <input type="number" class=" input Year_input"id="Year" placeholder="YYYY">
+        </div>
+      </div>
+
+      <!-- divider -->
+      <div class="div_container">
+        <div class="line"></div>
+        <div class="divider_container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 46 44"><g fill="none" stroke="white" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+        </div>
+      </div>
+
+      <!-- output -->
+      <section class="output_container">
+        <p class="output Year_output"><span class="output_span Year_output">--</span>Years</p>
+        <p class="output Month_output"><span class="output_span Month_output">--</span>Months</p>
+        <p class="output day_output"><span class="output_span day_output">--</span>Days</p>
+      </section>
+    </div>
+  </section>
+  <footer class="attribution">
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/DMK980">Derrick M</a>.
+    </div>
+  </footer>
+</body>
+</html>
