@@ -34,7 +34,7 @@ body{
 .calc{
     background-color: var(--COLOUR-3);
     border-radius: 5% 5% 30% 5%;
-    padding: 2rem 1.5rem;
+    padding: 3rem 5rem 0 2.5rem;
     box-shadow: 1px 1px 30px -20px var(--COLOUR-5);
 }
 .inputs{
@@ -87,10 +87,10 @@ body{
     color: var(--COLOUR-3);
 }
 .output_container{
-    line-height: 1rem;
+    line-height: 0.12rem;
 }
 .output{
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     font-weight: 900;
     font-style: italic;
 }
