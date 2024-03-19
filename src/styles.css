@@ -105,6 +105,18 @@ body{
     color: hsl(228, 45%, 44%); 
 }
 
+
+/* Error styles */
+.error_border {
+    border: 2px solid var(--COLOUR-6) !important ;
+}
+.error_color {
+    color: var(--COLOUR-6) !important ;
+}
+.error_font {
+    font-size: 0.65rem;
+}
+
 @media screen and (max-width:768px) {
     .calc_background{
         width: 100%;
