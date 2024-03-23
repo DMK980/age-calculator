@@ -22,16 +22,21 @@ const containers = {
     "year" : year_input_container
 }
 
-
 // submit button
 // arrow button 
 const submit = document.getElementsByClassName("divider_container")[0];
 
-
 // outputs
-const years = document.getElementsByClassName("year_span")[0]
-const month = document.getElementsByClassName("month_span")[0]
-const day = document.getElementsByClassName("day_span")[0]
+const years_dom = document.getElementsByClassName("year_span")[0]
+const month_dom = document.getElementsByClassName("month_span")[0]
+const day_dom = document.getElementsByClassName("day_span")[0]
+
+const daysinamonth = {
+    1: 31,2:28,3: 31,4: 30,5: 31,6: 30,
+    7: 31,8: 31,9: 30,10: 31,11: 30,12: 31
+}
+
+const isleap = (year)=> new Date(year,1,29).getDate() === 29
 
 // logic //
 
@@ -157,41 +162,201 @@ const errormessage = (error,element)=>{
     }
 }
 // Required input missing logic 
-const requiredinputmissing = (error,element)=>{
+const requiredinputmissing = ()=>{
+    let error = "required"
+    let element = []
+    let response = true;
     if(day_input.value === ""){
         element.push("day")
         changetored()
         errormessage(error,element)
         element.pop()
+        response = false;
     }
     if(month_input.value === ""){
         element.push("month")
         changetored()
         errormessage(error,element)
         element.pop()
+        response = false
     }
     if(year_input.value === ""){
         element.push("year")
         changetored()
         errormessage(error,element)
         element.pop()
+        response = false
+    }
+    return response
+}
+// invalid input
+const invalidinputlogic = ()=>{
+
+    //current date
+    let date = new Date()
+    let cur_year = date.getFullYear()
+    let cur_month = date.getMonth() + 1
+    let cur_day = date.getDate()
+    let elem = []
+
+    // inputted values
+    let inp_year = Number(year_input.value)
+    let inp_month = Number(month_input.value)
+    let inp_day = Number(day_input.value)
+
+    // validated outputs
+    let year_value = undefined
+    let month_value = undefined
+    let day_value = undefined
+
+    // validating year
+    if (cur_year - inp_year >= 0){
+        year_value = inp_year
+    } else {
+        elem.push("year")
+        changetored()
+        errormessage("invalid",elem)
+        elem.pop()
+    }
+
+    // validating month
+    if (inp_month > 0 && inp_month <= 12){
+        if (cur_year === inp_year){
+            if (cur_month - inp_month >= 0){
+                month_value = inp_month
+            } else {
+                elem.push("month")
+                changetored()
+                errormessage("invalid",elem)
+                elem.pop()
+            }  
+        } else{
+            month_value = inp_month
+        }
+    } else {
+        elem.push("month")
+        changetored()
+        errormessage("invalid",elem)
+        elem.pop()
+    }
+    // validating day 
+    if (inp_day >= 1){
+        if(isleap(year_value)){
+            if(month_value === 2){
+                if (cur_day <= 29){
+                    day_value = inp_day
+                } else{
+                    elem.push("day")
+                    changetored()
+                    errormessage("invalid",elem)
+                    elem.pop("day")
+                }
+            } else{
+                day_value = inp_day
+            }
+        } else{
+            if (inp_day <= daysinamonth[month_value]){
+                day_value = inp_day
+            } else{
+                elem.push("day")
+                changetored()
+                errormessage("invalid",elem)
+                elem.pop("day")
+            }
+        }
+    } else {
+        elem.push("day")
+        changetored()
+        errormessage("invalid",elem)
+        elem.pop("day")
+    } 
+
+    if (day_value != undefined && month_value != undefined && year_value != undefined){
+        return true
+    } else{
+        return false
     }
 }
+// output
+const result = ()=>{
 
-// when submit button is clicked
+    // modifying dom 
+    const modifyDom = (elem,value)=>{
+        elem.innerHTML = value
+    }
+
+    // old date
+    let old_year = Number(year_input.value)
+    let old_month = Number(month_input.value)
+    let old_day = Number(day_input.value)
+    // current date
+    let curr_date = new Date()
+    let curr_year = curr_date.getFullYear()
+    let curr_month = curr_date.getMonth() + 1
+    let curr_day = curr_date.getDate()
+    // outputs
+    let day_value = 0
+    let month_value = 0
+    let year_value = 0
+
+    // calculating day manually
+    if (curr_day < old_day){
+        curr_month = curr_month - 1
+        if (isleap(old_year)){
+            if(old_month === 3){
+                day_value = (curr_day + (daysinamonth[ curr_month]+1)) - old_day
+            }
+            if(old_month === 1){
+                day_value = (curr_day + (daysinamonth[12])) - old_day
+            }
+            day_value = day_value = (curr_day + (daysinamonth[curr_month])) - old_day
+        } else {
+            if(old_month === 1){
+                day_value = (curr_day + (daysinamonth[12])) - old_day
+            }
+            day_value = (curr_day + (daysinamonthc[curr_month])) - old_day
+        }
+    } else {
+        day_value = curr_day - old_day
+    }
+    
+    // calculating month manually
+    if (curr_month < old_month){
+        curr_year = curr_year - 1
+        month_value = (curr_month + 12) - old_month
+    } else {
+        month_value = curr_month - old_month
+    }
+
+    // calculating year manually
+    year_value = curr_year - old_year
+
+    // presenting result
+    modifyDom(years_dom,year_value)
+    modifyDom(month_dom,month_value)
+    modifyDom(day_dom,day_value)
+
+}
+
+// // The machine // //
+
+// when submit button is clicked //
 submit.addEventListener("click",() => {
 
-    // types of errors
-    let errors = ["required","invalid"]
-    // elements with the error
-    let element = []
-
-    // Error handling
+    // Error handling //
 
     error_cleanup()
     // Required input missing
-    requiredinputmissing("required",element)
+    requiredinputmissing()
+    //invalid input 
+    invalidinputlogic()
 
+    // output //
+    //  true being that input is not missing and is a valid input
+    if (requiredinputmissing() && invalidinputlogic()){
+        changetooriginal()
+        result()
+    }
 })
 
 

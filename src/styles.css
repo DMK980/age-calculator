@@ -147,6 +147,10 @@ body{
         justify-content: center;
         padding: 2.5rem 0 1rem 0;
     }
+    /* error styles */
+    .error_font {
+        font-size: 0.6rem;
+    }
 }
 
 
