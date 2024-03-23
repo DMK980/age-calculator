@@ -39,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL Github: [Add solution URL here](https://dmk980.github.io/age-calculator/)
+- Solution URL Github: [Add solution URL here](https://github.com/DMK980/age-calculator)
 - Live Site URL: [Add live site URL here](https://age-calculator-five-sandy.vercel.app/)
 ## My process
 
