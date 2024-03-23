@@ -53,6 +53,10 @@ body{
     padding: .5rem;
     font-weight:900;
 }
+.input:focus{
+    outline: none;
+    border: 2px solid var(--COLOUR-1);
+}
 .input::placeholder{
     color: rgba(160, 160, 160, 0.8);
     font-weight: 800;
