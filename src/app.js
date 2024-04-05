@@ -314,7 +314,7 @@ const result = ()=>{
             if(old_month === 1){
                 day_value = (curr_day + (daysinamonth[12])) - old_day
             }
-            day_value = (curr_day + (daysinamonthc[curr_month])) - old_day
+            day_value = (curr_day + (daysinamonth[curr_month])) - old_day
         }
     } else {
         day_value = curr_day - old_day
@@ -353,6 +353,8 @@ submit.addEventListener("click",() => {
 
     // output //
     //  true being that input is not missing and is a valid input
+    console.log(requiredinputmissing())
+    console.log(invalidinputlogic())
     if (requiredinputmissing() && invalidinputlogic()){
         changetooriginal()
         result()
